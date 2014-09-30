@@ -1,0 +1,8 @@
+This is a simple flask app that works as a webfrontend for a simple dynamic dns hosting service.
+
+In the back, it uses nsupdate to speak to the configured dns master and manage dns records for the registered users.
+
+Use pip to install the things mentioned in requirements.txt to get started.
+A virtualenv will also come in handy.
+
+This thing is just in a very early stage and i don't know how far it will go from here.

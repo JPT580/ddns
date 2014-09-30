@@ -84,6 +84,11 @@ def create_app(test_config=None):  # For automated tests
     def profile_page():
         return render_template('profile.html')
 
+    @app.route('/dns')
+    @login_required
+    def update_dns():
+        return render_template('dns.html')
+
     @app.route('/special')
     @roles_required('admin')
     def special_page():
