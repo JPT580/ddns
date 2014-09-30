@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<h2>{%trans%}Profile Page{%endtrans%}</h2>
+<p> 
+	{%trans%}Hello{%endtrans%} {{ current_user.username or current_user.email }}!
+</p>
+<ul>
+	<li><a href="{{ url_for('user.change_username') }}">{%trans%}Change username{%endtrans%}</a></li>
+	<li><a href="{{ url_for('user.change_password') }}">{%trans%}Change password{%endtrans%}</a></li>
+	<li><a href="{{ url_for('user.logout') }}?next={{ url_for('user.login') }}">{%trans%}Sign out{%endtrans%}</a></li>
+</ul>
+{% endblock %}

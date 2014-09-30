@@ -1,0 +1,9 @@
+settings.py
+
+*.pyc
+*~
+*.sqlite
+.project
+.settings
+.buildpath
+.pydevproject

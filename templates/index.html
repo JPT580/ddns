@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>{%trans%}Welcome!{%endtrans%}</h1>
+<p>
+	<a href="{{ url_for('user.login') }}">{%trans%}Sign in{%endtrans%}</a> or
+	<a href="{{ url_for('user.register') }}">{%trans%}Register{%endtrans%}</a>
+</p>
+
+{% endblock %}
