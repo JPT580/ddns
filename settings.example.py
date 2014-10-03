@@ -33,6 +33,15 @@ def username_validator(form, field):
     """ Since usernames will be used for subdomains, take your time here. """
     username = field.data
     if len(username) < 4:
-        raise ValidationError(_('Username must be at least 4 characters long'))
-    if not username.isalnum():
-        raise ValidationError(_('Username may only contain letters and numbers'))
+        raise ValidationError(_('Username must be at least 4 characters long.'))
+    if username != username.lower():
+        raise ValidationError(_('Please use lower case letters, numbers, dash and underscore only.'))
+    if username in ['admin', 'root', 'hostmaster', 'webmaster', 'www']:
+        raise ValidationError(_('This username is not allowed.'))
+    import re
+    regex = '([a-z])([-_a-z0-9]){2,40}'
+    pattern = re.compile(regex)
+    if pattern.match(username) != None:
+        return
+    else:
+        raise ValidationError(_('Username must comply with this regex: "' + regex + '".'))
